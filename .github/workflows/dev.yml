@@ -6,7 +6,7 @@ name: CI
 # events but only for the master branch
 on:
   pull_request:
-    branches: [ dev ]
+    branches: [ staging ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -37,4 +37,4 @@ jobs:
     - name: 'Convert Metadata'
       run: sfdx force:source:convert --rootdir=force-app --outputdir=force
     - name: 'Run Test on Metadata'
-      run: sfdx force:mdapi:deploy --deploydir=convert --testlevel=RunLocalTests --checkonly -u sfdxpoc
+      run: sfdx force:mdapi:deploy --deploydir=convert --testlevel=RunLocalTests --checkonly -u sfdxpoc    
