@@ -27,7 +27,7 @@ jobs:
         mkdir -p ~/cli/sf
         tar xJf sf-linux-x64.tar.xz -C ~/cli/sf --strip-components 1
         export PATH=~/cli/sf/bin:$PATH
-        PATH=~/cli/sf/bin:$PATH
+        echo "export PATH=~/cli/sf/bin:$PATH" >> $BASH_ENV
  # Runs a set of commands using the runners shell
     - name: 'Decrypt file'
       run: openssl enc -nosalt -aes-256-cbc -d -in assets/server.key.enc -out server.key -base64 -K ${{ secrets.DECRYPTION_KEY }} -iv ${{ secrets.DECRYPTION_IV }}
